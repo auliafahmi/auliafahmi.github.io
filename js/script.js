@@ -54,8 +54,8 @@ function draw(labels, values){
         }
     }
 
-    const ctx = document.getElementById("bar-chart");
-    new Chart(ctx, {
+    const barChart = document.getElementById("bar-chart");
+    new Chart(barChart, {
         type: "bar",
         data: dataObj,
         options: options
