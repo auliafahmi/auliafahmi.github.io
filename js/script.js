@@ -2,7 +2,7 @@ fetch('data/paper.csv')
     .then(response => response.text())
     .then((data) => {
 
-        /* deklarasi data sebagai array */
+        /* deklarasi variabel dalam bentuk array */
         const namaDosen = [];
         const paper = [];
         const rows = data.split("\n");
@@ -22,6 +22,8 @@ fetch('data/paper.csv')
 
         draw(namaDosen, paper);
     });
+
+/* fungsi untuk membuat chart */
 
 function draw(labels, values){
 
@@ -54,13 +56,15 @@ function draw(labels, values){
         }
     }
 
-    const ctx = document.getElementById("bar-chart");
-    new Chart(ctx, {
+    // Bar Chart
+    const barChart = document.getElementById("bar-chart");
+    new Chart(barChart, {
         type: "bar",
         data: dataObj,
         options: options
     });
 
+    // Horizontal Bar Chart
     const hrChart = document.getElementById("hr-chart");
     new Chart(hrChart, {
         type: "horizontalBar",
@@ -68,6 +72,7 @@ function draw(labels, values){
         options: options
     });
 
+    // Line Chart
     const lineChart = document.getElementById("line-chart");
     new Chart(lineChart, {
         type: "line",
@@ -75,9 +80,10 @@ function draw(labels, values){
         options: options
     });
 
-    const pieChart = document.getElementById("pie-chart");
-    new Chart(pieChart, {
-        type: "pie",
+    // Doughnut Chart
+    const doughnutChart = document.getElementById("doughnut-chart");
+    new Chart(doughnutChart, {
+        type: "doughnut",
         data: dataObj,
         options: options
     });
